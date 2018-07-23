@@ -1,0 +1,29 @@
+<%= render 'shared/page_title', title: @book.name %>
+<div class="well col-md-8 col-md-offset-2">
+  <h4 class="center description"><strong>Synopsis: </strong></h4>
+  <hr />
+  <%= simple_format(@book.synopsis) %>
+  <hr />
+  <div class="pull-right">
+    <p class="center">
+      <em>Added by:</em>
+    </p>
+    <p class="center">
+      <%= link_to gravatar_for(@book.user), book_path %>
+    </p>
+    <p class="center">
+      <small><%= @book.user.username.capitalize %></small>
+      <div class="pull-right"><%=time_ago_in_words(@book.created_at) %> ago </div>
+   </p>
+ </div>
+ <div class="book-actions">
+   <% if logged_in? && (current_user == @book.user || current_user.admin?) %>
+     <%= link_to "Edit the synopsis", edit_book_path(@book), class: "btn btn-xs btn-warning" %>
+     <%= link_to "Delete this book", book_path(@book), method: :delete,
+                                          data: { confirm: "Are you sure you want to delete this book?" },
+                                          class: "btn btn-xs btn-danger" %>
+   <% end %>
+   <%= link_to "Return to Book listing", books_path, class: "btn btn-xs btn-primary" %>
+
+ </div>
+</div>

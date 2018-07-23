@@ -1,0 +1,86 @@
+$navbar-default-bg: #06224f;
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.center {
+  text-align: center;
+}
+.jumbotron {
+  background-image: asset-url('book2.jpg');
+  background-size: cover;
+  height: 550px;
+}
+
+#logo {
+  float: left;
+  font-size: 1.7em;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-weight: bold;
+}
+
+#logo:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+.jumbotron h1 {
+  color: #06224f;
+  text-align: center;
+  margin-bottom: 30px;
+  letter-spacing: -1px;
+  font-weight: bold;
+}
+
+.jumbotron h2 {
+  color: #06224f;
+  text-align: center;
+  margin-bottom: 30px;
+  letter-spacing: -1px;
+  font-weight: bold;
+}
+
+.btn-xlarge {
+  background-color: #06224f;
+}
+
+.btn-xlarge:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+.description {
+  margin-top: 0;
+}
+
+.well a {
+  color: #06224f;
+}
+
+.user_info {
+  margin-top: 10px;
+}
+
+.colormatch a {
+  color: #06224f;
+}
+
+.book-actions {
+  padding-top: 5px;
+  a {
+    color: #fff;
+  }
+}
+
+.listing {
+  list-style: none;
+  padding-left: 0;
+}
+
+.user-title {
+  color: #06224f;
+  font-weight: bold;
+  font-size: 1.25em;
+}
