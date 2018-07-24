@@ -53,7 +53,7 @@ def edit
   end
 
   def book_params
-    params.require(:book).permit(:name, :synopsis)
+    params.require(:book).permit(:name, :synopsis, :category, :author)
   end
 
   def require_same_user

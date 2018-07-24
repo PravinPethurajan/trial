@@ -1,4 +1,6 @@
-<% obj.each do |book| %>
+<%= render 'shared/page_title', title: "Listing all Books" %>
+<% @book.each do |book| %>
+  <%if book.category==params[:category] %>
   <div class="row">
     <div class="col-md-2">
       <section class="user_info center">
@@ -15,21 +17,15 @@
         <br>
         <span class="quiet"><small><%= time_ago_in_words(book.created_at) %> ago</small></span>
       </p>
-      <div class="book-actions">
       <% if logged_in? && (current_user == book.user || current_user.admin?) %>
-
+         <div class="book-actions">
            <%= link_to "Edit the synopsis", edit_book_path(book), class: "btn btn-xs btn-warning" %>
            <%= link_to "Delete this book", book_path(book), method: :delete,
                                                 data: { confirm: "Are you sure you want to delete this book?" },
                                                 class: "btn btn-xs btn-danger" %>
-     <% end %>
-     <hr />
-     <% if logged_in? && (current_user != book.user && !current_user.admin?)%>
-     <%= link_to "Add this book to cart",lend_cart_path(id: book), class: "btn btn-xs btn-primary"%>
+         </div>
      <% end %>
      </div>
-   </div>
   </div>
-
-
+  <%end %>
 <% end %>

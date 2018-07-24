@@ -1,0 +1,6 @@
+<%= render 'shared/page_title', title: "Listing all categories" %>
+<% @filter.each do |filter| %>
+    <div class="well col-md-offset-4 col-md-4">
+      <h4><center><%=link_to filter, lend_categoryshelf_url(category: filter) %></center></h4>
+    </div>
+<% end %>

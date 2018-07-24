@@ -4,6 +4,12 @@
   <hr />
   <%= simple_format(@book.synopsis) %>
   <hr />
+  <strong>Category: </strong><%= @book.category %>
+  <br>
+  <strong>Author: </strong><%= @book.author %></h4>
+  <br>
+  <br>
+  <br>
   <div class="pull-right">
     <p class="center">
       <em>Added by:</em>
@@ -24,6 +30,9 @@
                                           class: "btn btn-xs btn-danger" %>
    <% end %>
    <%= link_to "Return to Book listing", books_path, class: "btn btn-xs btn-primary" %>
-
+   <hr />
+   <% if logged_in? && (current_user != @book.user && !current_user.admin?)%>
+   <%= link_to "Add this book to cart", lend_cart_path(id: @book), class: "btn btn-xs btn-primary" %>
+   <% end %>
  </div>
 </div>
