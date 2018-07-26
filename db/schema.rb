@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_24_175711) do
+ActiveRecord::Schema.define(version: 2018_07_25_124424) do
 
   create_table "books", force: :cascade do |t|
     t.string "name"
@@ -27,17 +27,19 @@ ActiveRecord::Schema.define(version: 2018_07_24_175711) do
     t.string "name"
     t.integer "book_id"
     t.integer "customer_id"
-    t.integer "issue_date"
-    t.integer "due_date"
-  end
-
-  create_table "customers", force: :cascade do |t|
-    t.string "customer_name"
-    t.string "book_name"
     t.datetime "issue_date"
     t.datetime "due_date"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  end
+
+# Could not dump table "customers" because of following StandardError
+#   Unknown type 'String' for column 'name1'
+
+  create_table "custs", force: :cascade do |t|
+    t.string "name"
+    t.integer "book_id"
+    t.integer "customer_id"
+    t.datetime "issue_date"
+    t.datetime "due_date"
   end
 
   create_table "users", force: :cascade do |t|

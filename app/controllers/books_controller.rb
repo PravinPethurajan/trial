@@ -33,7 +33,7 @@ def edit
 
   def update
     if @book.update(book_params)
-      flash[:success] = "Recipe was updated successfully!"
+      flash[:success] = "Book was updated successfully!"
       redirect_to book_path(@book)
     else
       render 'edit'

@@ -29,6 +29,7 @@
             <ul class="dropdown-menu">
               <li><%= link_to "Add new book", new_book_url %></li>
               <li><%= link_to "Lend books", lend_options_url %></li>
+              <li><%= link_to "Return books", pages_return_path %></li>
             </ul>
           </li>
           <% end %>
@@ -47,7 +48,7 @@
             <ul class="dropdown-menu">
               <li><%= link_to "View your profile", user_path(current_user) %></li>
               <li><%= link_to "Edit your profile", edit_user_path(current_user) %></li>
-              <li><%= link_to "Go to cart", "#" %></li>
+              <li><%= link_to "Go to cart", pages_cart_path %></li>
               <li role="separator" class="divider"></li>
               <li><%= link_to "Log out", logout_path, method: :delete %></li>
             </ul>

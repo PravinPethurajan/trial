@@ -1,0 +1,11 @@
+<%= render 'shared/page_title', title: "Books u lent" %>
+<% @cart.each do |c| %>
+  <% if c.customer_id ==current_user.id %>
+  <div class="well col-md-offset-4 col-md-4" >
+    <h4><center><%=c.name%></center></h4>
+    <div class="book-actions">
+    <center><%= link_to "Return book", pages_confirmreturn_path(id: c.book_id),class: "btn btn-xs btn-primary" %></center>
+    </div>
+  </div>
+  <% end %>
+<% end %>

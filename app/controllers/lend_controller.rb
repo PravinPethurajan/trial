@@ -24,7 +24,8 @@ before_action :require_user
   end
 
   def cart
-   if(Cart.where(customer_id = current_user.id).count>2)
+    @count=Cart.where(customer_id: current_user.id).count
+   if @count>=2
      flash[:danger] = "Cant add more than 2 books in cart"
      redirect_to books_path
    else
@@ -34,6 +35,7 @@ before_action :require_user
      @cart.book_id=@b.id
      @cart.customer_id=current_user.id
      @cart.save
+     @b.update_attribute(:lend,true)
      flash[:success] = "Book added to cart successfully"
      redirect_to books_path
    end

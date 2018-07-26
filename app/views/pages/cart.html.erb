@@ -1,0 +1,23 @@
+<%= render 'shared/page_title', title: "Your Cart" %>
+<% if @count>0 %>
+  <% @cart.each do |c| %>
+    <% if c.customer_id==current_user.id %>
+    <div class="well col-md-offset-4 col-md-4">
+      <h4><center><%=c.name%></center></h4>
+      <div class="book-actions">
+      <center><%= link_to "Remove book", pages_remove_books_path(id: c.book_id),class: "btn btn-xs btn-danger" %></center>
+      </div>
+    </div>
+  <br>
+
+    <% end %>
+  <% end %>
+
+  <div class="col-md-offset-2 col-md-10">
+    <%= link_to "Proceed to checkout",pages_checkout_path ,class: "btn btn-primary btn-lg btn-xlarge",style:"float:right" %>
+  </div>
+<% else  %>
+  <center><h3><%= "Your cart is empty" %></h3></center>
+  <hr />
+  <center><%= link_to "Return to Book listing", books_path, class: "btn btn-xs btn-primary" %><center>
+<% end %>
