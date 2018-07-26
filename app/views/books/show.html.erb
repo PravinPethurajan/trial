@@ -15,7 +15,7 @@
         <em>Added by:</em>
       </p>
       <p class="center">
-      <%= link_to gravatar_for(@book.user), book_path %>
+      <%= link_to avatar_for(@book.user), book_path,size:120 %>
     </p>
     <p class="center">
       <small><%= @book.user.username.capitalize %></small>

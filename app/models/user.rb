@@ -8,4 +8,5 @@
   has_many :books, dependent: :destroy
   has_secure_password
   validates :password, presence: true, length: { minimum: 5 }, allow_nil: true
+  has_one_attached :avatar, dependent: :destroy
  end

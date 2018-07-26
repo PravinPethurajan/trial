@@ -41,7 +41,7 @@ def edit
   end
 
   def destroy
-    Book.find(params[:id]).destroy
+    Book.find(params[:id]).delete
     flash[:success] = "Book deleted successfully"
     redirect_to books_path
   end

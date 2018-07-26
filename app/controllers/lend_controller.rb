@@ -25,7 +25,8 @@ before_action :require_user
 
   def cart
     @count=Cart.where(customer_id: current_user.id).count
-   if @count>=2
+    @c=Cust.where(customer_id: current_user.id).count
+   if (@count>=2 || @c>=2)
      flash[:danger] = "Cant add more than 2 books in cart"
      redirect_to books_path
    else
